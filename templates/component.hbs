@@ -1,0 +1,24 @@
+<template>
+  <div class="{{name}}Wrap">
+    {{name}}
+  </div>
+</template>
+
+<script setup>
+const props = defineProps([])
+
+// 创建响应式变量
+const state = ref({
+  count: 0,
+});
+
+// 生命周期
+onMounted(() => {})
+
+</script>
+
+<style scoped lang="scss">
+.{{name}}Wrap {
+
+}
+</style>
