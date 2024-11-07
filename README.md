@@ -12,7 +12,7 @@ a Vue3-Starter powered by Vite.
 - axios
 - echarts 5.x
 - animate.css
-- unplugin-auto-import/vite
+- unplugin-auto-import
 - plop
 
 ## Features
