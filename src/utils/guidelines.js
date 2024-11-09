@@ -17,7 +17,7 @@ function initAligningGuidelines(canvas) {
       coords.x + 0.5,
       coords.y1 > coords.y2 ? coords.y2 : coords.y1,
       coords.x + 0.5,
-      coords.y2 > coords.y1 ? coords.y2 : coords.y1,
+      coords.y2 > coords.y1 ? coords.y2 : coords.y1
     );
   }
 
@@ -26,7 +26,7 @@ function initAligningGuidelines(canvas) {
       coords.x1 > coords.x2 ? coords.x2 : coords.x1,
       coords.y + 0.5,
       coords.x2 > coords.x1 ? coords.x2 : coords.x1,
-      coords.y + 0.5,
+      coords.y + 0.5
     );
   }
 
@@ -122,7 +122,7 @@ function initAligningGuidelines(canvas) {
         activeObject.setPositionByOrigin(
           new fabric.Point(objectLeft - objectWidth / 2 + activeObjectWidth / 2, activeObjectTop),
           'center',
-          'center',
+          'center'
         );
       }
 
@@ -143,7 +143,7 @@ function initAligningGuidelines(canvas) {
         activeObject.setPositionByOrigin(
           new fabric.Point(objectLeft + objectWidth / 2 - activeObjectWidth / 2, activeObjectTop),
           'center',
-          'center',
+          'center'
         );
       }
 
@@ -181,7 +181,7 @@ function initAligningGuidelines(canvas) {
         activeObject.setPositionByOrigin(
           new fabric.Point(activeObjectLeft, objectTop - objectHeight / 2 + activeObjectHeight / 2),
           'center',
-          'center',
+          'center'
         );
       }
 
@@ -202,7 +202,7 @@ function initAligningGuidelines(canvas) {
         activeObject.setPositionByOrigin(
           new fabric.Point(activeObjectLeft, objectTop + objectHeight / 2 - activeObjectHeight / 2),
           'center',
-          'center',
+          'center'
         );
       }
     }

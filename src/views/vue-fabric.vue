@@ -89,7 +89,7 @@ export default {
             x: opt.e.offsetX, // 鼠标x轴坐标
             y: opt.e.offsetY, // 鼠标y轴坐标
           },
-          zoom, // 最后要缩放的值
+          zoom // 最后要缩放的值
         );
       });
     },

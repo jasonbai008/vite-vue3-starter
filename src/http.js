@@ -21,7 +21,7 @@ http.interceptors.request.use(
   (error) => {
     console.log(error); // for debug
     Promise.reject(error);
-  },
+  }
 );
 
 // 响应拦截器
@@ -40,7 +40,7 @@ http.interceptors.response.use(
       }
     }
     return Promise.reject(error.response.data); // 返回接口返回的错误信息
-  },
+  }
 );
 
 export default http;
