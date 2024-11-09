@@ -14,7 +14,7 @@ a Vue3-Starter powered by Vite.
 - echarts 5.x
 - animate.css
 - unplugin-auto-import
-- plop
+- prettier
 
 ## Features
 
@@ -26,7 +26,8 @@ a Vue3-Starter powered by Vite.
 6. 支持自动引入 vue 模块 【借助插件：unplugin-auto-import/vite】
 7. 封装了自适应 echarts 图表组件
 8. 支持全局状态持久化【默认未开启】
-9. 支持使用 plop 生成模版文件
+9. 支持批量格式化
+10. 支持全局格式化配置
 
 ## How to Use
 
@@ -43,8 +44,24 @@ npm run build
 # Preview builded page
 npm run preview
 
-# Generate a new component file
-npm run plop
+# Format all files under src
+npm run format
+```
+
+## Prettier Introduction
+
+```js
+{
+    "printWidth": 120, // 每行最大字符数
+    "tabWidth": 2, // 缩进宽度
+    "useTabs": false, // 不使用制表符
+    "semi": true, // 使用分号
+    "singleQuote": true, // 使用单引号
+    "arrowParens": "always", // 箭头函数参数总是使用括号
+    "bracketSpacing": true, // 对象字面量括号内加空格
+    "endOfLine": "lf", // 行尾使用换行符
+    "trailingComma": "all" // 最后一个元素后添加逗号
+}
 ```
 
 ## Documentations
