@@ -52,15 +52,16 @@ npm run format
 
 ```js
 {
-    "printWidth": 120, // 每行最大字符数
-    "tabWidth": 2, // 缩进宽度
-    "useTabs": false, // 不使用制表符
-    "semi": true, // 使用分号
-    "singleQuote": true, // 使用单引号
-    "arrowParens": "always", // 箭头函数参数总是使用括号
-    "bracketSpacing": true, // 对象字面量括号内加空格
-    "endOfLine": "lf", // 行尾使用换行符
-    "trailingComma": "all" // 最后一个元素后添加逗号
+  "printWidth": 80,                // 一行的最大长度
+  "tabWidth": 2,                   // 每个缩进级别的空格数
+  "useTabs": false,                // 是否使用制表符而不是空格
+  "semi": true,                    // 行末是否加分号
+  "singleQuote": true,             // 使用单引号而不是双引号
+  "trailingComma": "es5",          // 在ES5有效的地方添加尾逗号: "none" | "es5" | "all"
+  "bracketSpacing": true,          // 在对象字面量的大括号之间打印空格
+  "jsxBracketSameLine": false,     // 在 JSX 中将 `>` 放在最后一行的末尾而不是单独放在下一行
+  "arrowParens": "always",         // 箭头函数参数是否使用括号: "avoid" | "always"
+  "endOfLine": "lf"                // 行结束符: "auto" | "lf" | "crlf" | "cr"
 }
 ```
 
