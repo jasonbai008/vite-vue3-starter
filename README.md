@@ -48,7 +48,7 @@ npm run preview
 npm run format
 ```
 
-## Prettier Introduction
+## Prettierrc Introduction
 
 ```js
 {
