@@ -1,10 +1,10 @@
 // Vite 还不支持
-import axios from "axios"; // https://github.com/vitejs/vite/issues/162
+import axios from 'axios'; // https://github.com/vitejs/vite/issues/162
 // import router from "./router";
 
 // 构建请求对象
 const http = axios.create({
-  baseURL: "api/v1/",
+  baseURL: 'api/v1/',
   timeout: 1000 * 5,
   headers: {},
 });
@@ -14,14 +14,14 @@ http.interceptors.request.use(
   (config) => {
     // 如果本地存储中有token字段， 就为所有请求加上Authorization请求头
     if (localStorage.token) {
-      config.headers["Authorization"] = `Bearer ${localStorage.token}`;
+      config.headers['Authorization'] = `Bearer ${localStorage.token}`;
     }
     return config;
   },
   (error) => {
     console.log(error); // for debug
     Promise.reject(error);
-  }
+  },
 );
 
 // 响应拦截器
@@ -40,7 +40,7 @@ http.interceptors.response.use(
       }
     }
     return Promise.reject(error.response.data); // 返回接口返回的错误信息
-  }
+  },
 );
 
 export default http;

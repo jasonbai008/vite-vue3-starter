@@ -17,9 +17,8 @@
 </template>
 
 <script>
-
 export default {
-  name: "signin",
+  name: 'signin',
   data() {
     return {};
   },

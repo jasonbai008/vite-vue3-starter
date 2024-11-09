@@ -39,21 +39,21 @@ clickChart(item) {
 */
 
 // 完整引入echarts
-import * as echarts from "echarts";
+import * as echarts from 'echarts';
 export default {
-  name: "BaseChart",
+  name: 'BaseChart',
   props: {
     // vue3中v-model的默认变量是：modelValue
     // 如果使用的是vue2，需要将下方的变量以及使用的地方改成value
     modelValue: {
       type: Object,
       default() {
-        return {}
-      }
+        return {};
+      },
     },
     theme: {
       type: String,
-      default: 'light',  // light or dark
+      default: 'light', // light or dark
     },
   },
   data() {
@@ -69,7 +69,7 @@ export default {
           right: '5%',
           top: 50,
           bottom: 50,
-          containLabel: true
+          containLabel: true,
         },
         tooltip: {
           trigger: 'axis',
@@ -79,7 +79,7 @@ export default {
   },
   computed: {
     chartId() {
-      return "chartId" + Math.random().toString(36).substr(2);
+      return 'chartId' + Math.random().toString(36).substr(2);
     },
   },
   mounted() {
@@ -92,10 +92,10 @@ export default {
   watch: {
     modelValue: {
       handler() {
-        this.renderChart()
+        this.renderChart();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     // 初始化图表实例，并监听容器宽高变化
@@ -111,13 +111,13 @@ export default {
       }
 
       // 绑定点击事件
-      this.myChart.on('click', this.handleClick)
+      this.myChart.on('click', this.handleClick);
 
       // 监听父元素尺寸变化
-      this.listenFather()
+      this.listenFather();
 
       // 初始化实例后，直接绘制图表一次
-      this.renderChart()
+      this.renderChart();
     },
     // 绘制图表
     renderChart() {
@@ -126,7 +126,7 @@ export default {
     },
     // 监听父元素尺寸变化
     listenFather() {
-      this.observer = new ResizeObserver(entries => {
+      this.observer = new ResizeObserver((entries) => {
         const { width, height } = entries[0].contentRect;
         // 将父级节点的宽高赋值给图表，并重绘
         this.myChart.resize({
@@ -138,8 +138,8 @@ export default {
     },
     // 设置点击事件
     handleClick(params) {
-      this.$emit("click", params);
-    }
+      this.$emit('click', params);
+    },
   },
 };
 </script>

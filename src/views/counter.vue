@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <Counter></Counter>
-    </div>
+  <div>
+    <Counter></Counter>
+  </div>
 </template>
 <script>
-import Counter from '@/components/Counter.vue'
+import Counter from '@/components/Counter.vue';
 export default {
-    name: 'counterPage',
-    components: {
-        Counter,
-    },
-}
+  name: 'counterPage',
+  components: {
+    Counter,
+  },
+};
 </script>

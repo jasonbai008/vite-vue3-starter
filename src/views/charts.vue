@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import BaseChart from "@/components/BaseChart.vue";
+import BaseChart from '@/components/BaseChart.vue';
 export default {
-  name: "charts",
+  name: 'charts',
   components: {
     BaseChart,
   },
@@ -20,37 +20,37 @@ export default {
     return {
       chartData1: {
         xAxis: {
-          type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
         yAxis: {
-          type: "value",
+          type: 'value',
         },
         series: [
           {
             data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: "line",
+            type: 'line',
           },
         ],
       },
       chartData2: {
         xAxis: {
-          type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
         yAxis: {
-          type: "value",
+          type: 'value',
         },
         series: [
           {
             data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: "line",
+            type: 'line',
           },
         ],
       },
     };
   },
-  mounted() { },
+  mounted() {},
   methods: {
     clickChart(item) {
       console.log(item);

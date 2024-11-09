@@ -8,7 +8,7 @@ function initAligningGuidelines(canvas) {
     aligningLineOffset = 5,
     aligningLineMargin = 4,
     aligningLineWidth = 1,
-    aligningLineColor = "rgb(0,255,0)",
+    aligningLineColor = 'rgb(0,255,0)',
     viewportTransform,
     zoom = 1;
 
@@ -17,7 +17,7 @@ function initAligningGuidelines(canvas) {
       coords.x + 0.5,
       coords.y1 > coords.y2 ? coords.y2 : coords.y1,
       coords.x + 0.5,
-      coords.y2 > coords.y1 ? coords.y2 : coords.y1
+      coords.y2 > coords.y1 ? coords.y2 : coords.y1,
     );
   }
 
@@ -26,7 +26,7 @@ function initAligningGuidelines(canvas) {
       coords.x1 > coords.x2 ? coords.x2 : coords.x1,
       coords.y + 0.5,
       coords.x2 > coords.x1 ? coords.x2 : coords.x1,
-      coords.y + 0.5
+      coords.y + 0.5,
     );
   }
 
@@ -35,14 +35,8 @@ function initAligningGuidelines(canvas) {
     ctx.lineWidth = aligningLineWidth;
     ctx.strokeStyle = aligningLineColor;
     ctx.beginPath();
-    ctx.moveTo(
-      x1 * zoom + viewportTransform[4],
-      y1 * zoom + viewportTransform[5]
-    );
-    ctx.lineTo(
-      x2 * zoom + viewportTransform[4],
-      y2 * zoom + viewportTransform[5]
-    );
+    ctx.moveTo(x1 * zoom + viewportTransform[4], y1 * zoom + viewportTransform[5]);
+    ctx.lineTo(x2 * zoom + viewportTransform[4], y2 * zoom + viewportTransform[5]);
     ctx.stroke();
     ctx.restore();
   }
@@ -50,11 +44,7 @@ function initAligningGuidelines(canvas) {
   function isInRange(value1, value2) {
     value1 = Math.round(value1);
     value2 = Math.round(value2);
-    for (
-      var i = value1 - aligningLineMargin, len = value1 + aligningLineMargin;
-      i <= len;
-      i++
-    ) {
+    for (var i = value1 - aligningLineMargin, len = value1 + aligningLineMargin; i <= len; i++) {
       if (i === value2) {
         return true;
       }
@@ -65,20 +55,19 @@ function initAligningGuidelines(canvas) {
   var verticalLines = [],
     horizontalLines = [];
 
-  canvas.on("mouse:down", function () {
+  canvas.on('mouse:down', function () {
     viewportTransform = canvas.viewportTransform;
     zoom = canvas.getZoom();
   });
 
-  canvas.on("object:moving", function (e) {
+  canvas.on('object:moving', function (e) {
     var activeObject = e.target,
       canvasObjects = canvas.getObjects(),
       activeObjectCenter = activeObject.getCenterPoint(),
       activeObjectLeft = activeObjectCenter.x,
       activeObjectTop = activeObjectCenter.y,
       activeObjectBoundingRect = activeObject.getBoundingRect(),
-      activeObjectHeight =
-        activeObjectBoundingRect.height / viewportTransform[3],
+      activeObjectHeight = activeObjectBoundingRect.height / viewportTransform[3],
       activeObjectWidth = activeObjectBoundingRect.width / viewportTransform[0],
       horizontalInTheRange = false,
       verticalInTheRange = false,
@@ -113,20 +102,11 @@ function initAligningGuidelines(canvas) {
               ? activeObjectTop + activeObjectHeight / 2 + aligningLineOffset
               : activeObjectTop - activeObjectHeight / 2 - aligningLineOffset,
         });
-        activeObject.setPositionByOrigin(
-          new fabric.Point(objectLeft, activeObjectTop),
-          "center",
-          "center"
-        );
+        activeObject.setPositionByOrigin(new fabric.Point(objectLeft, activeObjectTop), 'center', 'center');
       }
 
       // snap by the left edge
-      if (
-        isInRange(
-          objectLeft - objectWidth / 2,
-          activeObjectLeft - activeObjectWidth / 2
-        )
-      ) {
+      if (isInRange(objectLeft - objectWidth / 2, activeObjectLeft - activeObjectWidth / 2)) {
         verticalInTheRange = true;
         verticalLines.push({
           x: objectLeft - objectWidth / 2,
@@ -140,22 +120,14 @@ function initAligningGuidelines(canvas) {
               : activeObjectTop - activeObjectHeight / 2 - aligningLineOffset,
         });
         activeObject.setPositionByOrigin(
-          new fabric.Point(
-            objectLeft - objectWidth / 2 + activeObjectWidth / 2,
-            activeObjectTop
-          ),
-          "center",
-          "center"
+          new fabric.Point(objectLeft - objectWidth / 2 + activeObjectWidth / 2, activeObjectTop),
+          'center',
+          'center',
         );
       }
 
       // snap by the right edge
-      if (
-        isInRange(
-          objectLeft + objectWidth / 2,
-          activeObjectLeft + activeObjectWidth / 2
-        )
-      ) {
+      if (isInRange(objectLeft + objectWidth / 2, activeObjectLeft + activeObjectWidth / 2)) {
         verticalInTheRange = true;
         verticalLines.push({
           x: objectLeft + objectWidth / 2,
@@ -169,12 +141,9 @@ function initAligningGuidelines(canvas) {
               : activeObjectTop - activeObjectHeight / 2 - aligningLineOffset,
         });
         activeObject.setPositionByOrigin(
-          new fabric.Point(
-            objectLeft + objectWidth / 2 - activeObjectWidth / 2,
-            activeObjectTop
-          ),
-          "center",
-          "center"
+          new fabric.Point(objectLeft + objectWidth / 2 - activeObjectWidth / 2, activeObjectTop),
+          'center',
+          'center',
         );
       }
 
@@ -192,20 +161,11 @@ function initAligningGuidelines(canvas) {
               ? activeObjectLeft + activeObjectWidth / 2 + aligningLineOffset
               : activeObjectLeft - activeObjectWidth / 2 - aligningLineOffset,
         });
-        activeObject.setPositionByOrigin(
-          new fabric.Point(activeObjectLeft, objectTop),
-          "center",
-          "center"
-        );
+        activeObject.setPositionByOrigin(new fabric.Point(activeObjectLeft, objectTop), 'center', 'center');
       }
 
       // snap by the top edge
-      if (
-        isInRange(
-          objectTop - objectHeight / 2,
-          activeObjectTop - activeObjectHeight / 2
-        )
-      ) {
+      if (isInRange(objectTop - objectHeight / 2, activeObjectTop - activeObjectHeight / 2)) {
         horizontalInTheRange = true;
         horizontalLines.push({
           y: objectTop - objectHeight / 2,
@@ -219,22 +179,14 @@ function initAligningGuidelines(canvas) {
               : activeObjectLeft - activeObjectWidth / 2 - aligningLineOffset,
         });
         activeObject.setPositionByOrigin(
-          new fabric.Point(
-            activeObjectLeft,
-            objectTop - objectHeight / 2 + activeObjectHeight / 2
-          ),
-          "center",
-          "center"
+          new fabric.Point(activeObjectLeft, objectTop - objectHeight / 2 + activeObjectHeight / 2),
+          'center',
+          'center',
         );
       }
 
       // snap by the bottom edge
-      if (
-        isInRange(
-          objectTop + objectHeight / 2,
-          activeObjectTop + activeObjectHeight / 2
-        )
-      ) {
+      if (isInRange(objectTop + objectHeight / 2, activeObjectTop + activeObjectHeight / 2)) {
         horizontalInTheRange = true;
         horizontalLines.push({
           y: objectTop + objectHeight / 2,
@@ -248,12 +200,9 @@ function initAligningGuidelines(canvas) {
               : activeObjectLeft - activeObjectWidth / 2 - aligningLineOffset,
         });
         activeObject.setPositionByOrigin(
-          new fabric.Point(
-            activeObjectLeft,
-            objectTop + objectHeight / 2 - activeObjectHeight / 2
-          ),
-          "center",
-          "center"
+          new fabric.Point(activeObjectLeft, objectTop + objectHeight / 2 - activeObjectHeight / 2),
+          'center',
+          'center',
         );
       }
     }
@@ -267,11 +216,11 @@ function initAligningGuidelines(canvas) {
     }
   });
 
-  canvas.on("before:render", function () {
+  canvas.on('before:render', function () {
     canvas.clearContext(canvas.contextTop);
   });
 
-  canvas.on("after:render", function () {
+  canvas.on('after:render', function () {
     for (var i = verticalLines.length; i--; ) {
       drawVerticalLine(verticalLines[i]);
     }
@@ -282,7 +231,7 @@ function initAligningGuidelines(canvas) {
     verticalLines.length = horizontalLines.length = 0;
   });
 
-  canvas.on("mouse:up", function () {
+  canvas.on('mouse:up', function () {
     verticalLines.length = horizontalLines.length = 0;
     canvas.renderAll();
   });
