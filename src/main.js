@@ -18,6 +18,11 @@ import { createPinia } from 'pinia'
 // 全局状态持久化插件
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
+// 引入事件总线
+import mitt from 'mitt'
+
+// 定义全局变量
+
 import App from './App.vue'
 import router from './router/index.js'
 import http from './http.js'
@@ -25,6 +30,8 @@ import http from './http.js'
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 const app = createApp(App);
+
+app.config.globalProperties.$bus = mitt();
 app.config.globalProperties.$http = http;
 app.use(router).use(pinia).use(ElementPlus, { locale: zhCn }).mount('#app');
 

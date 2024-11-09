@@ -10,6 +10,7 @@ a Vue3-Starter powered by Vite.
 - pinia-plugin-persistedstate
 - element-plus 2.3.12
 - axios
+- mitt
 - echarts 5.x
 - animate.css
 - unplugin-auto-import
