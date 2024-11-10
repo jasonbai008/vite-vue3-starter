@@ -23,7 +23,7 @@ a Vue3-Starter powered by Vite.
 3. 支持配置环境变量
 4. 支持开发环境请求代理
 5. 支持 element-plus 自定义主题色
-6. 支持自动引入 vue 模块 【借助插件：unplugin-auto-import/vite】
+6. 支持自动引入 vue 模块 【借助插件：unplugin-auto-import】
 7. 封装了自适应 echarts 图表组件
 8. 支持全局状态持久化【默认未开启】
 9. 支持批量格式化
