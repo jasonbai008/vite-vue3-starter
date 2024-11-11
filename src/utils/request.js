@@ -3,14 +3,14 @@ import axios from 'axios'; // https://github.com/vitejs/vite/issues/162
 // import router from "./router";
 
 // 构建请求对象
-const http = axios.create({
+const request = axios.create({
   baseURL: 'api/v1/',
   timeout: 1000 * 5,
   headers: {},
 });
 
 // 请求拦截器
-http.interceptors.request.use(
+request.interceptors.request.use(
   (config) => {
     // 如果本地存储中有token字段， 就为所有请求加上Authorization请求头
     if (localStorage.token) {
@@ -25,7 +25,7 @@ http.interceptors.request.use(
 );
 
 // 响应拦截器
-http.interceptors.response.use(
+request.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -43,4 +43,4 @@ http.interceptors.response.use(
   }
 );
 
-export default http;
+export default request;

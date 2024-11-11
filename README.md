@@ -12,10 +12,11 @@ a Vue3-Starter powered by Vite.
 - axios
 - mitt
 - echarts 5.x
-- animate.css
+- dayjs
 - lazy-man-css
 - unplugin-auto-import
 - prettier
+- fabric
 
 ## Features
 
@@ -74,4 +75,4 @@ npm run format
 - [Pinia Documentation](https://pinia.vuejs.org/zh/introduction.html)
 - [pinia-plugin-persistedstate Documentation](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/)
 - [Element-Plus Documentation](https://element-plus.org/#/zh-CN/component/installation)
-- [通过Plop自动生成vue页面](https://juejin.cn/post/6997401682615205919)
+- [Day.js中文网](https://dayjs.fenxianglu.cn/)
