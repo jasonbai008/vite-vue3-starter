@@ -52,6 +52,8 @@ npm run format
 
 ## Prettierrc Introduction
 
+仓库成员需要使用VSCode的Prettier插件格式化自己的代码，具体配置如下：
+
 ```js
 {
   "printWidth": 120,               // 一行的最大长度
