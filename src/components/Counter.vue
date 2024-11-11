@@ -1,8 +1,6 @@
 <template>
-  <h1>{{ msg }}</h1>
-
   <!-- 使用了全局状态中心的action -->
-  <el-button @click="store.increment">count is: {{ store.count }}</el-button>
+  <el-button @click="store.increment" class="mt20">count is: {{ store.count }}</el-button>
   <p>
     <span>The ENV: {{ state.mode }}</span>
     <br />
@@ -12,8 +10,8 @@
 
 <script setup>
 // 引入全局状态
-import { useCounterStore } from '@/stores/counter';
-const store = useCounterStore();
+import { useStore } from '@/stores/index';
+const store = useStore();
 
 // 定义组件属性
 const props = defineProps(['msg']);

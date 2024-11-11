@@ -2,9 +2,12 @@ import { createApp } from 'vue';
 // 引入动画库
 import 'animate.css';
 
+// 引入我自己的 lazy-man-css
+import 'lazy-man-css'
+
 // 完整引入饿了么Plus（默认英文版）
 import ElementPlus from 'element-plus';
-import 'element-plus/dist/index.css';
+// import 'element-plus/dist/index.css';
 
 // 引入自定义主题变量
 import '@/assets/theme/element-variables.scss';
@@ -17,11 +20,11 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
 import { createPinia } from 'pinia';
 // 全局状态持久化插件
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+// 引入全局状态对象
+import { useStore } from '@/stores/index';
 
 // 引入事件总线
 import mitt from 'mitt';
-
-// 定义全局变量
 
 import App from './App.vue';
 import router from './router/index.js';
@@ -29,8 +32,14 @@ import http from './http.js';
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
-const app = createApp(App);
 
-app.config.globalProperties.$bus = mitt();
+const app = createApp(App);
+app.use(router).use(pinia).use(ElementPlus, { locale: zhCn })
+
+// 以下变量绑定到全局，在【选项式的Vue组件】中，可以直接使用，比如：this.$store
+// 就不用挨个引入了
 app.config.globalProperties.$http = http;
-app.use(router).use(pinia).use(ElementPlus, { locale: zhCn }).mount('#app');
+app.config.globalProperties.$bus = mitt();
+app.config.globalProperties.$store = useStore();
+
+app.mount('#app');

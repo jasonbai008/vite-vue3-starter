@@ -13,6 +13,7 @@ a Vue3-Starter powered by Vite.
 - mitt
 - echarts 5.x
 - animate.css
+- lazy-man-css
 - unplugin-auto-import
 - prettier
 

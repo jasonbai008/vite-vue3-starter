@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const useCounterStore = defineStore('counter', {
+export const useStore = defineStore('main', {
   // 借助pinia-plugin-persistedstate插件，实现数据持久化
   // 该插件的默认配置如下:
   // 使用 localStorage 进行存储
