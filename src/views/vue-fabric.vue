@@ -23,7 +23,7 @@ import { fabric } from 'fabric';
 // 引入辅助线插件
 import initAligningGuidelines from '@/utils/guidelines.js';
 // 引入图片
-import logo from '@/assets/logo.png';
+// import logo from '@/assets/images/logo.png';
 // fabric实例不能放到data里，只能放在外面
 let canvas = null;
 export default {
