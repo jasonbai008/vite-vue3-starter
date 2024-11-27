@@ -33,6 +33,25 @@ export default defineConfig({
   },
   build: {
     outDir: "docs",
+    rollupOptions: {
+      output: {
+        // 指定 JS 输出到 `dist/js` 目录
+        entryFileNames: 'js/[name].js',
+        chunkFileNames: 'js/[name].js',
+        assetFileNames: (assetInfo) => {
+          // 指定 CSS 输出到 `dist/css` 目录
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'css/[name][extname]'
+          }
+          // 指定 字体 输出到 `dist/fonts` 目录
+          if (assetInfo.name && assetInfo.name.endsWith('.ttf')) {
+            return 'fonts/[name][extname]'
+          }
+          // 其他资源文件输出到 `dist/assets` 目录
+          return 'assets/[name][extname]'
+        }
+      }
+    }
   },
   // css: {
   //   preprocessorOptions: {
