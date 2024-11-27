@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: 'signin',
+  name: 'welcome',
   data() {
     return {};
   },
